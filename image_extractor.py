@@ -1,7 +1,11 @@
 import fitz
 import os
+import re
 
-def extract_images(pdf_path, output_folder):
+def extract_images(
+    pdf_path,
+    output_folder="extracted_images"
+):
 
     os.makedirs(output_folder, exist_ok=True)
 
@@ -13,24 +17,37 @@ def extract_images(pdf_path, output_folder):
 
         page = pdf[page_index]
 
-        images = page.get_images()
+        page_text = page.get_text()
 
-        for img_index, img in enumerate(images):
+        temps = re.findall(r"\d+\.\d+", page_text)
 
-            xref = img[0]
+        temps = [float(t) for t in temps]
 
-            base_image = pdf.extract_image(xref)
+        relevant_page = any(
+            20.5 <= temp <= 20.9
+            for temp in temps
+        )
 
-            image_bytes = base_image["image"]
+        if relevant_page:
 
-            image_path = (
-                f"{output_folder}/"
-                f"page_{page_index}_{img_index}.png"
-            )
+            images = page.get_images()
 
-            with open(image_path, "wb") as f:
-                f.write(image_bytes)
+            for img_index, img in enumerate(images):
 
-            image_paths.append(image_path)
+                xref = img[0]
+
+                base_image = pdf.extract_image(xref)
+
+                image_bytes = base_image["image"]
+
+                image_path = os.path.join(
+                    output_folder,
+                    f"page_{page_index}_{img_index}.png"
+                )
+
+                with open(image_path, "wb") as f:
+                    f.write(image_bytes)
+
+                image_paths.append(image_path)
 
     return image_paths
