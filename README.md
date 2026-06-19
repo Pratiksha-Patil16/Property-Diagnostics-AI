@@ -2,7 +2,7 @@
 
 ## Overview
 
-Property Diagnostics AI is an AI-powered application that automates the analysis of property inspection reports and thermal inspection reports. The system extracts text and images from PDF documents, analyzes the findings, and generates a Detailed Diagnostic Report (DDR) containing issue summaries, probable root causes, severity assessments, and recommended actions.
+Property Diagnostics AI is an AI-powered application that automates the analysis of property inspection reports and thermal inspection reports. The system extracts text and images from PDF documents, analyzes the findings, and issue summaries, probable root causes, severity assessments, and recommended actions.
 
 ---
 
@@ -14,8 +14,7 @@ This project automates the workflow by:
 
 * Processing Inspection Report PDFs
 * Processing Thermal Report PDFs
-* Extracting observations and thermal findings
-* Generating structured diagnostic reports
+* Extracting observations and thermal finding
 
 
 ### PDF Processing
@@ -23,7 +22,7 @@ This project automates the workflow by:
 * Upload Inspection Report PDF
 * Upload Thermal Report PDF
 * Extract text using PyMuPDF
-* OCR-ready architecture for scanned documents
+
 
 ### Image Extraction
 
@@ -107,8 +106,7 @@ Property_Diagnostics_AI/
 2. Upload Thermal Report PDF
 3. Extract text and images
 4. Analyze observations and findings
-5. Generate Detailed Diagnostic Report
-6. Download the generated report
+
 
 
 
