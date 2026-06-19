@@ -101,8 +101,8 @@ Property_Diagnostics_AI/
 
 ├── README.md
 
-
-
+ 
+#How System work
 1. Upload Inspection Report PDF
 2. Upload Thermal Report PDF
 3. Extract text and images
@@ -111,4 +111,4 @@ Property_Diagnostics_AI/
 6. Download the generated report
 
 
-AI/ML & Generative AI Enthusiast
+
